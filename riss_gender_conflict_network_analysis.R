@@ -65,12 +65,12 @@ dtmTfIdf %>% as.matrix() %>% cor() -> corTerms
 glimpse(corTerms)
 
 #corTerms to network obj
-#netTerms <- network(x = corTerms, directed = FALSE)
-#plot(netTerms, vertex.cex = 1)
+netTerms <- network(x = corTerms, directed = FALSE)
+plot(netTerms, vertex.cex = 1)
 
 #네트워크 맵 그리기
 #상관행렬 크기 조정
-corTerms[corTerms <= 0.05] <- 0
+corTerms[corTerms <= 0.55] <- 0
 netTerms <- network(x = corTerms, directed = FALSE)
 plot(netTerms, vertex.cex = 1)
 
@@ -85,12 +85,12 @@ netTerms %v% 'mode' <-
         yes = 'Top', 
         no = 'Rest')
 nodeColors <- c('Top' = 'gold', 'Rest' = 'lightgrey')
-set.edge.value(netTerms, attrname = 'edgeSize', value = corTerms * 3)
+set.edge.value(netTerms, attrname = 'edgeSize', value = corTerms * 1)
 ggnet2(
     net = netTerms,
     mode = 'fruchtermanreingold',
     layout.par = list(cell.jitter = 0.001),
-    size.min = 10,
+    size.min = 3,
     label = TRUE,
     label.size = 3,
     node.color = 'mode',
@@ -99,5 +99,3 @@ ggnet2(
     edge.size = 'edgeSize',
     family = 'mono')+
     labs(title = "매개중심성 반영한 단어-네트워크맵")
-)
-
