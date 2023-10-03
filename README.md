@@ -26,4 +26,8 @@
 - 연결 중심성이 높은 논문은 해당 주제의 핵심 논문일 수 있으며, 해당 주제의 중요성을 나타낼 수 있음   
 
   ![image](https://github.com/silverwater1820/RISS_NETWORK_ANALYSIS/assets/97444162/87470711-7e6e-44b8-adb7-9f057ba61e88)
+
+**사용한 데이터**     
+RISS에서 크롤링한 2013년도 ~2023년도 총 10년간의 논문 제목
+
         
